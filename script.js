@@ -1,9 +1,9 @@
-/* ============================================================
+/* 
    Memory Allocation Visualizer
-   - Supports Fixed and Variable Partition Allocation
+   - Fixed and Variable Partition Allocation
    - Algorithms: First Fit, Best Fit, Worst Fit
    - Step Controls, Adjustable Speed, PNG/JSON Export
-   ============================================================= */
+   = */
 
 const canvas = document.getElementById("visualizer");
 const ctx = canvas.getContext("2d");
@@ -12,7 +12,7 @@ let blocks = [], processes = [], algorithm = "first", mode = "fixed";
 let steps = [], currentStep = 0;
 let playing = false, speed = 1, playInterval = null;
 
-// ===== Event Listeners =====
+// Event Listeners
 document.getElementById("startBtn").addEventListener("click", startSimulation);
 document.getElementById("algoSelect").addEventListener("change", e => algorithm = e.target.value);
 document.getElementById("modeSelect").addEventListener("change", e => mode = e.target.value);
@@ -24,7 +24,7 @@ document.getElementById("prevBtn").addEventListener("click", prevStep);
 document.getElementById("exportPngBtn").addEventListener("click", exportPng);
 document.getElementById("exportJsonBtn").addEventListener("click", exportJson);
 
-/* ===== Core Simulation ===== */
+/* Core Simulation */
 function startSimulation() {
   const blockInput = document.getElementById("blockInput").value;
   const processInput = document.getElementById("processInput").value;
@@ -44,7 +44,7 @@ function startSimulation() {
   drawStep(steps[0]);
 }
 
-/* ===== Fixed Partition Simulation ===== */
+/* Fixed Partition Simulation */
 function simulateFixed() {
   let mem = [...blocks];
   let alloc = new Array(processes.length).fill(-1);
@@ -70,7 +70,7 @@ function simulateFixed() {
   }
 }
 
-/* ===== Variable Partition Simulation ===== */
+/* Variable Partition Simulation */
 function simulateVariable() {
   let memorySize = blocks.reduce((a,b)=>a+b,0);
   let partitions = [{ start: 0, size: memorySize, free: true }];
@@ -111,7 +111,7 @@ function simulateVariable() {
   }
 }
 
-/* ===== Drawing Engine ===== */
+/*  Drawing Engine  */
 function drawStep(step) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -201,7 +201,7 @@ function updateStatsVariable(total, used, alloc) {
   const util = ((used/total)*100).toFixed(2);
   updateStatsUI(used, free, allocCount, util);
 }
-
+// updating the utilisation bar and stats
 function updateStatsUI(used, free, allocCount, util) {
   let color = "#d32f2f";
   if (util >= 80) color = "#388e3c";
@@ -221,7 +221,7 @@ function updateStatsUI(used, free, allocCount, util) {
   `;
 }
 
-/* ===== Playback Controls ===== */
+/* Playback Controls */
 function play() {
   if (playing || steps.length === 0) return;
   playing = true;
@@ -234,7 +234,7 @@ function pause() { playing = false; clearInterval(playInterval); }
 function nextStep() { if (steps.length) { currentStep = Math.min(currentStep + 1, steps.length - 1); drawStep(steps[currentStep]); } }
 function prevStep() { if (steps.length) { currentStep = Math.max(currentStep - 1, 0); drawStep(steps[currentStep]); } }
 
-/* ===== Export ===== */
+/* Export functionality, ability to export png and traces*/
 function exportPng() {
   const link = document.createElement("a");
   link.download = "memory_allocation.png";

@@ -13,7 +13,7 @@ h1 {
   font-size: 1.8rem;
 }
 
-/* ===== Input Section ===== */
+/*  Input Section styling */
 .input-panel {
   background: #fff;
   display: inline-flex;
@@ -49,7 +49,7 @@ button {
 }
 button:hover { background: #1565c0; }
 
-/* ===== Visualization and Stats Side by Side ===== */
+/* Visualization and Stats Side by Side styling and arrangement */
 .main-container {
   display: flex;
   justify-content: center;
@@ -72,7 +72,7 @@ canvas {
   height: auto;
 }
 
-/* ===== Stats Panel ===== */
+/* Stats Panel styling */
 .stats {
   background: #fff;
   width: 25vw;
@@ -92,7 +92,7 @@ canvas {
   margin-bottom: 12px;
 }
 
-/* ===== Fancy Stat Grid ===== */
+/* additional styling for the statistics panel */
 .stat-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -124,11 +124,11 @@ canvas {
 .util-mid span { color: #fbc02d; }
 .util-high span { color: #43a047; }
 
-/* ===== Control Buttons ===== */
+/* Control Buttons styling */
 .controls {
   margin-top: 15px;
 }
-
+/* Responsive Design for smaller screens */
 @media (max-width: 1100px) {
   canvas {
     width: 90vw;
@@ -141,7 +141,7 @@ canvas {
     min-height: auto;
   }
 }
-
+/* Fade-in animation for stat items */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
