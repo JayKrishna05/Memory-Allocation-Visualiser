@@ -26,18 +26,6 @@ It enables users to visualize both **Fixed Partition** and **Variable Partition*
 
 ---
 
-## Operating System Concepts Covered
-- **Memory Management**
-  - Fixed Partition Allocation
-  - Variable Partition Allocation
-- **Allocation Algorithms**
-  - First Fit
-  - Best Fit
-  - Worst Fit
-- **Memory Utilization and Fragmentation**
-
----
-
 ## Technology Stack
 - **HTML5:** Interface structure and content organization.
 - **CSS3:** Styling and responsive layout.
