@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Allocation Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Memory Allocation Visualizer</h1>
+
+  <!-- ===== Input Panel ===== -->
+  <section class="input-panel">
+    <label>Block Sizes:</label>
+    <input id="blockInput" placeholder="e.g. 100, 500, 200, 300, 600">
+
+    <label>Process Sizes:</label>
+    <input id="processInput" placeholder="e.g. 212, 417, 112, 426">
+
+    <label>Algorithm:</label>
+    <select id="algoSelect">
+      <option value="first">First Fit</option>
+      <option value="best">Best Fit</option>
+      <option value="worst">Worst Fit</option>
+    </select>
+
+    <label>Mode:</label>
+    <select id="modeSelect">
+      <option value="fixed">Fixed Partition</option>
+      <option value="variable">Variable Partition</option>
+    </select>
+
+    <label>Speed:</label>
+    <input id="speedRange" type="range" min="0.3" max="2" step="0.1" value="1">
+
+    <button id="startBtn">Start</button>
+    <button id="exportPngBtn">PNG</button>
+    <button id="exportJsonBtn">Trace</button>
+  </section>
+
+  <!-- ===== Visualization + Stats Container ===== -->
+  <section class="main-container">
+    <canvas id="visualizer" width="800" height="500"></canvas>
+
+    <aside class="stats">
+      <h3>Execution Statistics</h3>
+      <div id="stats" class="stat-grid">Awaiting simulation...</div>
+    </aside>
+  </section>
+
+  <!-- ===== Controls ===== -->
+  <section class="controls">
+    <button id="prevBtn">⏮ Step Back</button>
+    <button id="playBtn">▶ Play</button>
+    <button id="pauseBtn">⏸ Pause</button>
+    <button id="nextBtn">⏭ Step Forward</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
